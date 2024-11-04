@@ -50,7 +50,7 @@ Em ambos os algoritmos foi utilizando os seguintes tabuleiros como estado inicia
 
 ![Captura de tela de 2024-11-04 16-48-43](https://github.com/user-attachments/assets/a740d65d-41e9-4388-b418-33f800f1df30)
 
-Além disso também é mostrado todos os passos que foram necessário para resolver o puzzle
+Além disso também é mostrado todos os passos que foram necessários para resolver o puzzle
 
 ![Captura de tela de 2024-11-04 16-50-40](https://github.com/user-attachments/assets/4ab47a6c-5679-422d-8f17-a2e4ce12123a)
 
@@ -60,7 +60,7 @@ Além disso também é mostrado todos os passos que foram necessário para resol
 
 ---
 
-## 🖥️ Como Utilizar A aplicação
+## 🖥️ Como Utilizar a Aplicação
 
 ### ⚡ Requisitos
 
@@ -70,7 +70,7 @@ Além disso também é mostrado todos os passos que foram necessário para resol
 
 1. **Clone o repositório**:
    ```bash
-   https://github.com/Gianlz/Puzzle-8.git
+   git clone https://github.com/Gianlz/Puzzle-8.git
 2. **Instale o fastAPI**:
    ```bash
    pip install fastapi[standard]
