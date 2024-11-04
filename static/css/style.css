@@ -1,0 +1,248 @@
+:root {
+    --primary-color: #ca2027;
+    --secondary-color: #349a46;
+    --background-color: #f1f1f1;
+    --card-background: #ffffff;
+    --text-color: #1d1d1d;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+    --accent-red: #ca2027;
+    --accent-green: #349a46;
+}
+
+/* Header Styles */
+.header {
+    background: var(--secondary-color);
+    padding: 1rem 0;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 2rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.ifc-logo {
+    height: 80px;
+    width: auto;
+}
+
+.header-title {
+    color: white;
+    margin: 0;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.container-puzzle {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.secao-puzzle {
+    background: var(--card-background);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.secao-puzzle:hover {
+    transform: translateY(-5px);
+}
+
+.grid-puzzle {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    width: 300px;
+    margin: 1rem auto;
+}
+
+.celula-puzzle {
+    aspect-ratio: 1;
+    background: var(--card-background);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+    border: 2px solid transparent;
+}
+
+.celula-puzzle:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.celula-puzzle.vazia {
+    background: #f0f2f5;
+    box-shadow: inset var(--shadow-sm);
+}
+
+.celula-puzzle.configurando {
+    border: 2px dashed var(--accent-red);
+    animation: pulse 2s infinite;
+}
+
+.celula-puzzle.selecionado {
+    background-color: var(--accent-green);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.controles {
+    text-align: center;
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+button:hover {
+    background: #d62828;
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.container-solucao {
+    background: var(--card-background);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 2rem;
+    box-shadow: var(--shadow-lg);
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.cabecalho-solucao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+.metricas {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.metrica {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.valor-metrica {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-red);
+}
+
+.passo {
+    border-left: 4px solid var(--secondary-color);
+    margin: 1rem 0;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    animation: slideIn 0.5s ease;
+    box-shadow: var(--shadow-sm);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(230, 57, 70, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+    }
+}
+
+@media (max-width: 768px) {
+    .container-puzzle {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .secao-puzzle {
+        width: 100%;
+        max-width: 350px;
+    }
+} 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolvedor de Puzzle-8</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <img src="/static/img/Logo-IFC.png" style="border-radius: 15%;" alt="Logo IFC" class="ifc-logo">
+            <h1 class="header-title">Instituto Federal Catarinense</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Resolvedor de Puzzle-8</h1>
+        
+        <div class="container-puzzle">
+            <div class="secao-puzzle">
+                <h2>Estado Inicial</h2>
+                <div class="grid-puzzle" id="gridInicial"></div>
+                <button onclick="alternarGrid('inicial')">Configurar Estado Inicial</button>
+            </div>
+
+            <div class="secao-puzzle">
+                <h2>Estado Final</h2>
+                <div class="grid-puzzle" id="gridFinal"></div>
+                <button onclick="alternarGrid('final')">Configurar Estado Final</button>
+            </div>
+        </div>
+
+        <div class="controles">
+            <button onclick="resolverPuzzle('largura')" class="btn-verde">Resolver com Busca em Largura</button>
+            <button onclick="resolverPuzzle('a_estrela')">Resolver com A*</button>
+        </div>
+
+        <div id="solucao" class="container-solucao" style="display: none;">
+            <div class="cabecalho-solucao">
+                <h2>Solução Encontrada</h2>
+            </div>
+            <div class="metricas">
+                <div class="metrica">
+                    <div class="rotulo-metrica">Tempo de Execução</div>
+                    <div class="valor-metrica" id="metrica-tempo">0s</div>
+                </div>
+                <div class="metrica">
+                    <div class="rotulo-metrica">Estados Expandidos</div>
+                    <div class="valor-metrica" id="metrica-estados">0</div>
+                </div>
+            </div>
+            <div id="passos"></div>
+        </div>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html> 
