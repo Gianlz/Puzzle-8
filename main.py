@@ -19,7 +19,7 @@ app.add_middleware(
 
 # Configuração dos arquivos estáticos e templates
 app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="Templates")
 
 class RequisicaoPuzzle(BaseModel):
     estado_inicial: list
