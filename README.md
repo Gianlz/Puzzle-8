@@ -1,6 +1,7 @@
 # Implementação do PUZZLE-8
 
-![Captura de tela de 2024-11-04 15-51-03](https://github.com/user-attachments/assets/def58172-644a-47e7-a6c0-9f41cf8c1fbe)
+![Captura de tela 2024-11-05 143429](https://github.com/user-attachments/assets/a56d29c6-954f-454b-b6f1-bfd72b51794f)
+
 
 # 🧩 Puzzle-8
 
