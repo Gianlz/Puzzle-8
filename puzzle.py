@@ -1,6 +1,5 @@
 from collections import deque
 import time
-import heapq
 
 class Puzzle8:
     def __init__(self, estado_inicial, estado_final):
@@ -98,14 +97,17 @@ class Puzzle8:
         return None, time.perf_counter() - tempo_inicial, nos_expandidos
     
     def resolver_busca_a_estrela(self):
-        """Implementa a busca A* para resolver o puzzle."""
+        """Implementa a busca A* para resolver o puzzle usando uma lista ordenada ao invés de heap."""
         tempo_inicial = time.perf_counter()
-        heap = [(0, 0, self.estado_inicial, [])]  # (f(x), g(x), estado, caminho)
+        # Lista de tuplas (f(x), g(x), estado, caminho)
+        lista_prioridade = [(0, 0, self.estado_inicial, [])]
         visitados = set()
         nos_expandidos = 0
         
-        while heap:
-            _, custo_g, estado_atual, caminho = heapq.heappop(heap)
+        while lista_prioridade:
+            # Remove o estado com menor f(x)
+            atual = lista_prioridade.pop(0)
+            _, custo_g, estado_atual, caminho = atual
             estado_tupla = tuple(map(tuple, estado_atual))
             
             if estado_atual == self.estado_final:
@@ -118,12 +120,22 @@ class Puzzle8:
             visitados.add(estado_tupla)
             nos_expandidos += 1
             
+            # Gera próximos estados
+            proximos = []
             for proximo_estado in self.gerar_proximos_estados(estado_atual):
                 if tuple(map(tuple, proximo_estado)) not in visitados:
                     g = custo_g + 1
                     h = self.calcular_distancia_manhattan(proximo_estado) + \
                         self.contar_pecas_fora_lugar(proximo_estado)
                     f = g + h
-                    heapq.heappush(heap, (f, g, proximo_estado, caminho + [estado_atual]))
+                    proximos.append((f, g, proximo_estado, caminho + [estado_atual]))
+            
+            # Insere os novos estados mantendo a lista ordenada
+            for novo_estado in proximos:
+                # Encontra a posição correta para inserção
+                pos = 0
+                while pos < len(lista_prioridade) and lista_prioridade[pos][0] < novo_estado[0]:
+                    pos += 1
+                lista_prioridade.insert(pos, novo_estado)
         
         return None, time.perf_counter() - tempo_inicial, nos_expandidos
