@@ -35,14 +35,27 @@ async def resolver_puzzle(requisicao: RequisicaoPuzzle):
     puzzle = Puzzle8(requisicao.estado_inicial, requisicao.estado_final)
     
     if requisicao.tipo_busca == "largura":
-        solucao, tempo_execucao, nos_expandidos = puzzle.resolver_busca_largura()
+        solucao, tempo_execucao, nos_expandidos, solucionavel = puzzle.resolver_busca_largura()
     else:
-        solucao, tempo_execucao, nos_expandidos = puzzle.resolver_busca_a_estrela()
+        solucao, tempo_execucao, nos_expandidos, solucionavel = puzzle.resolver_busca_a_estrela()
+    
+    if not solucionavel:
+        return {
+            "erro": "Este puzzle não tem solução possível devido à configuração inicial e final.",
+            "solucionavel": False
+        }
+    
+    if solucao is None:
+        return {
+            "erro": "Não foi possível encontrar uma solução.",
+            "solucionavel": True
+        }
     
     return {
         "solucao": solucao,
         "tempo_execucao": tempo_execucao,
-        "nos_expandidos": nos_expandidos
+        "nos_expandidos": nos_expandidos,
+        "solucionavel": True
     }
 
 if __name__ == "__main__":

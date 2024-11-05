@@ -71,8 +71,32 @@ class Puzzle8:
         
         return proximos_estados
     
+    def contar_inversoes(self, estado):
+        """Conta o número de inversões em um estado do puzzle."""
+        # Converte a matriz 2D em uma lista 1D, ignorando o espaço vazio (0)
+        lista_plana = [num for linha in estado for num in linha if num != 0]
+        inversoes = 0
+        
+        for i in range(len(lista_plana)):
+            for j in range(i + 1, len(lista_plana)):
+                if lista_plana[i] > lista_plana[j]:
+                    inversoes += 1
+        return inversoes
+    
+    def eh_solucionavel(self):
+        """Verifica se o puzzle tem solução comparando a paridade das inversões."""
+        inversoes_inicial = self.contar_inversoes(self.estado_inicial)
+        inversoes_final = self.contar_inversoes(self.estado_final)
+        
+        # Em um puzzle 8, se a diferença entre o número de inversões
+        # do estado inicial e final for ímpar, não há solução
+        return (inversoes_inicial % 2) == (inversoes_final % 2)
+    
     def resolver_busca_largura(self):
         """Implementa a busca em largura (BFS) para resolver o puzzle."""
+        if not self.eh_solucionavel():
+            return None, 0, 0, False  # Adicionado False para indicar impossibilidade
+            
         tempo_inicial = time.perf_counter()
         fila = deque([(self.estado_inicial, [])])
         visitados = set()
@@ -84,7 +108,7 @@ class Puzzle8:
             
             if estado_atual == self.estado_final:
                 tempo_final = time.perf_counter()
-                return caminho + [estado_atual], tempo_final - tempo_inicial, nos_expandidos
+                return caminho + [estado_atual], tempo_final - tempo_inicial, nos_expandidos, True
             
             if estado_tupla in visitados:
                 continue
@@ -95,10 +119,13 @@ class Puzzle8:
             for proximo_estado in self.gerar_proximos_estados(estado_atual):
                 fila.append((proximo_estado, caminho + [estado_atual]))
         
-        return None, time.perf_counter() - tempo_inicial, nos_expandidos
+        return None, time.perf_counter() - tempo_inicial, nos_expandidos, False
     
     def resolver_busca_a_estrela(self):
         """Implementa a busca A* para resolver o puzzle."""
+        if not self.eh_solucionavel():
+            return None, 0, 0, False  # Adicionado False para indicar impossibilidade
+            
         tempo_inicial = time.perf_counter()
         heap = [(0, 0, self.estado_inicial, [])]  # (f(x), g(x), estado, caminho)
         visitados = set()
@@ -110,7 +137,7 @@ class Puzzle8:
             
             if estado_atual == self.estado_final:
                 tempo_final = time.perf_counter()
-                return caminho + [estado_atual], tempo_final - tempo_inicial, nos_expandidos
+                return caminho + [estado_atual], tempo_final - tempo_inicial, nos_expandidos, True
             
             if estado_tupla in visitados:
                 continue
@@ -126,4 +153,4 @@ class Puzzle8:
                     f = g + h
                     heapq.heappush(heap, (f, g, proximo_estado, caminho + [estado_atual]))
         
-        return None, time.perf_counter() - tempo_inicial, nos_expandidos
+        return None, time.perf_counter() - tempo_inicial, nos_expandidos, False
