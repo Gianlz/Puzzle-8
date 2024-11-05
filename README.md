@@ -39,25 +39,25 @@ O algoritmo A* utiliza uma função heurística para decidir quais nós expandir
 
 Em ambos os algoritmos foi utilizando os seguintes tabuleiros como estado inicial e final:
 
-![Captura de tela de 2024-11-04 16-42-50](https://github.com/user-attachments/assets/ac45eb7a-fed9-48c5-98cb-9067d4a6f066)
+![Captura de tela de 2024-11-05 15-28-42](https://github.com/user-attachments/assets/b7d5b7d0-0da7-41c5-b475-b08ea94f3128)
 
 ## 💡 Soluções 
 
 ### 🌐 Busca Horizontal
 
-![Captura de tela de 2024-11-04 16-47-22](https://github.com/user-attachments/assets/a1d66af6-26f4-44a0-8d9e-14bde41a6ad8)
+![Captura de tela de 2024-11-05 15-33-24](https://github.com/user-attachments/assets/10cec7a0-7668-4ea1-a69a-79901ea3f304)
 
 ### ✨ A* (A-Estrela)
 
-![Captura de tela de 2024-11-04 16-48-43](https://github.com/user-attachments/assets/a740d65d-41e9-4388-b418-33f800f1df30)
+![Captura de tela de 2024-11-05 15-44-17](https://github.com/user-attachments/assets/929054dc-537c-4221-a447-34153af85e98)
 
 Além disso também é mostrado todos os passos que foram necessário para resolver o puzzle
 
-![Captura de tela de 2024-11-04 16-50-40](https://github.com/user-attachments/assets/4ab47a6c-5679-422d-8f17-a2e4ce12123a)
+![Captura de tela de 2024-11-05 15-45-32](https://github.com/user-attachments/assets/4cd35ac7-ed15-436e-80c7-8ffd7a6c4937)
 
 ... 
 
-![Captura de tela de 2024-11-04 16-51-41](https://github.com/user-attachments/assets/8859ac8f-b20a-4a3e-8d9c-5d448835e495)
+![Captura de tela de 2024-11-05 15-46-49](https://github.com/user-attachments/assets/bb716bfe-5404-4993-b4fc-a1ceced05905)
 
 ---
 
