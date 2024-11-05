@@ -31,7 +31,7 @@ A Busca Horizontal faz-se a busca em níveis horizontais (da esquerda para a dir
 
 ### ✨ 2. A* (A-Estrela)
 
-O algoritmo A* utiliza uma função heurística para decidir quais nós expandir. Ele combina o custo acumulado de alcançar um nó com uma estimativa da distância até o objetivo, balanceando eficiência e precisão.
+O algoritmo A* utiliza uma função heurística para decidir quais nós expandir. Ele combina o custo acumulado de alcançar um nó com uma estimativa da distância (usando a distância de manhattan adaptada) até o objetivo, balanceando eficiência e precisão.
 
 ![Captura de tela de 2024-11-04 16-30-34](https://github.com/user-attachments/assets/acc74701-54d9-407c-bf43-9771aa73291a)
 
@@ -61,22 +61,25 @@ Além disso também é mostrado todos os passos que foram necessário para resol
 
 ---
 
-## 🖥️ Como Utilizar A aplicação
+## 🖥️ Como Utilizar a Aplicação
 
 ### ⚡ Requisitos
 
-> Ter o [Python](https://www.python.org/) instalado
+> Ter o [Python3](https://www.python.org/) instalado
 
  ### Instalação no Windows e Linux
 
 1. **Clone o repositório**:
    ```bash
-   https://github.com/Gianlz/Puzzle-8.git
+   git clone https://github.com/Gianlz/Puzzle-8.git
 2. **Instale o fastAPI**:
    ```bash
-   pip install "fastapi[standard]"
+   pip install fastapi[standard]
+   pip install uvicorn
+   pip install pydantic
+
 3. **Execute o projeto**:
    ```bash
-   fastapi dev main.py
+   fastapi dev main.py ou python3 main.py
 
 Para utilizar a interface web acesse: http://127.0.0.1:8000/
