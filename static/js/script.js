@@ -89,12 +89,11 @@ function tratarCliqueCelula(idGrid, i, j) {
     }
 }
 
-function resolverPuzzle() {
+function resolverPuzzle(algoritmoSelecionado) {
     if (configuracaoAtual) {
         alternarGrid(configuracaoAtual);
     }
     
-    let algoritmoSelecionado = 'largura';
     const radioSelecionado = document.querySelector('input[name="algoritmo"]:checked');
     if (radioSelecionado) {
         algoritmoSelecionado = radioSelecionado.value;
